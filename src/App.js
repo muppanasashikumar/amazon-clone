@@ -11,6 +11,7 @@ import Payment from './Payment';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from './Orders';
+import Sidebar from './Sidebar';
 
 const promise = loadStripe('pk_test_51IgQNeSGLIP75bnbl8kkpkdnzqDjRfAo1rfvw29vX4gJKZDKiwCmPnjAEau3NXxOHyaqlBZnWoJWYzTVmKh01TiG00qjAiexmr')
 
@@ -20,7 +21,7 @@ function App() {
   useEffect(() => {
     //will only runs once when the app component loads
     auth.onAuthStateChanged(authUser => {
-      console.log('The user is :' + authUser);
+      console.log('The user is :' + JSON.stringify(authUser));
 
       if(authUser) {
         //the user just logged in
@@ -40,7 +41,8 @@ function App() {
   }, [])
   return (
     <Router>
-      <div className="App">
+      <div className="App" id="outer-container">
+      <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
         <Switch>
           <Route path="/login">
             <Login />

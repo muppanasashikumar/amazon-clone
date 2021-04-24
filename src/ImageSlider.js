@@ -1,43 +1,25 @@
-import React, { useState } from 'react';
-import { SliderData } from './SliderData';
+import React from 'react'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import './ImageSlider.css'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
+function ImageSlider() {
+    return (
+        <div>
+            <Carousel autoPlay interval="3000" transitionTime="3000"
+             infiniteLoop showThumbs={false} showStatus={false} >
+                <div>
+                    <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="Img1" />
+                </div>
+                <div>
+                    <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="Img1" />
+                </div>
+                <div>
+                    <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="Img1" />
+                </div>
+            </Carousel>
+            </div>
+    )
+}
 
-const ImageSlider = ({ slides }) => {
-  const [current, setCurrent] = useState(0);
-  const length = slides.length;
-
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
-
-  if (!Array.isArray(slides) || slides.length <= 0) {
-    return null;
-  }
-
-  return (
-    <section className='slider'>
-      <IoIosArrowBack className='left-arrow' onClick={prevSlide} />
-      <IoIosArrowForward className='right-arrow' onClick={nextSlide} />
-      {SliderData.map((slide, index) => {
-        return (
-          <div
-            className={index === current ? 'slide active' : 'slide'}
-            key={index}
-          >
-            {index === current && (
-              <img src={slide.image} alt='travel image' className='image' />
-            )}
-          </div>
-        );
-      })}
-    </section>
-  );
-};
-
-export default ImageSlider;
+export default ImageSlider

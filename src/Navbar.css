@@ -1,0 +1,13 @@
+.navbar {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background-color: #232f3e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar__right {
+  display: flex;
+}

@@ -9,11 +9,11 @@
 }
 
 .header__logo {
-  width: 100px;
+  width: 89px;
   object-fit: contain;
   margin: 0;
   margin-top: 18px;
-  padding: 10px;
+  padding: 44px;
 }
 
 .header__search {

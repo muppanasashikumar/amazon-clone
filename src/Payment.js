@@ -50,7 +50,8 @@ function Payment() {
             }
         }).then(({ paymentIntent }) => {
             // paymentIntent = payment confirmation
-
+            console.log("The paymentIntent:" +paymentIntent)
+            
             db
               .collection('users')
               .doc(user?.uid)
@@ -117,7 +118,6 @@ function Payment() {
                                 image={item.image}
                                 price={item.price}
                                 rating={item.rating}
-                                key={item.id}
                             />
                         ))}
                     </div>
